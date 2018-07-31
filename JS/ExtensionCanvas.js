@@ -14,7 +14,7 @@ function CreateCanvas() {
     }
     this.idAnimate = setInterval(
       function() {
-        this.ctx.clearHolst();
+        this.ctx.clearWithAlpha("rgba(102, 51, 153, 1)");
         this._children.forEach(
           function(item) {
             if (item.nowDraw) {
@@ -74,6 +74,12 @@ CanvasRenderingContext2D.prototype.line = function(position, rotate) {
 };
 CanvasRenderingContext2D.prototype.clearHolst = function() {
   this.clearRect(0, 0, this.canvas.width, this.canvas.height);
+};
+CanvasRenderingContext2D.prototype.clearWithAlpha = function(color, alpha) {
+  this.save();
+  this.fillStyle = color;
+  this.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  this.restore();
 };
 CanvasRenderingContext2D.prototype.rotateD = function(degr) {
   this.rotate((degr * Math.PI) / 180);
