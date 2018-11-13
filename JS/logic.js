@@ -41,7 +41,7 @@ window.addEventListener("load", function() {
   };
   clock1.update = clock.update;
   ctx.canvas.addChildren(df);
-  //ctx.canvas.startAnimate();
+  ctx.canvas.startAnimate();
   ctx.canvas.addEventListener("click", function(e) {
     let clock = new Clock({
       position: {
